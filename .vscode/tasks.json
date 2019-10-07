@@ -1,0 +1,56 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build go",
+            "type": "shell",
+            "command": "./build-go.sh && ls -al $EXT_DIR",
+            "group": "build",
+            "problemMatcher": "$go"
+        },
+        {
+            "label": "build nginx",
+            "type": "shell",
+            "command": "./build-nginx.sh && nginx -V",
+            "group": "build",
+            "problemMatcher": "$gcc",
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "dependsOn": [
+                "stop nginx",
+                "build go",
+                "build nginx",
+                "start nginx"
+            ],
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "start nginx",
+            "type": "shell",
+            "command": "nginx -c $WORK_DIR/nginx/nginx.conf",
+        },
+        {
+            "label": "stop nginx",
+            "type": "shell",
+            "command": "kill -s TERM $(cat /var/run/nginx.pid)",
+        },
+        {
+            "label": "reload nginx",
+            "type": "shell",
+            "command": "kill -s HUP $(cat /var/run/nginx.pid)",
+        },
+        {
+            "label": "test userId",
+            "type": "shell",
+            "command": "curl localhost/userId"
+        }
+    ]
+}

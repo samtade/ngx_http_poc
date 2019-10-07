@@ -1,0 +1,26 @@
+{
+    "configurations": [
+      {
+        "name": "Win32",
+        "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
+        "compilerPath": "/usr/bin/g++",
+        "cStandard": "c11",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "${default}",
+        "browse": {
+          "path": ["${workspaceFolder}"],
+          "limitSymbolsToIncludedHeaders": true,
+          "databaseFilename": ""
+        },
+        "includePath": [
+            "/tmp/nginx-1.12.2/objs",
+            "/tmp/nginx-1.12.2/src/core",
+            "/tmp/ngx_devel_kit-0.3.0/objs",
+            "/tmp/ngx_devel_kit-0.3.0/src",
+            "/usr/local/nginx/ext"
+        ]
+      }
+    ],
+    "version": 4
+  }
+  
