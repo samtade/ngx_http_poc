@@ -1,3 +1,5 @@
+This is not production ready, only proof of concept. After working with this for awhile, I'd recommend using Openresty for custom nginx. 
+
 # Nginx http module with Go
 
 This repository is made for playing [VS Code Remote development](https://code.visualstudio.com/docs/remote/remote-overview) and nginx custom module. I encourage you to download [VS Code Insider](https://code.visualstudio.com/insiders/) and try this remote development feature. It's really cool 😎
